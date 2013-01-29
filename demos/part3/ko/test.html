@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<script src="../jquery.min.js"></script>
+<script src="knockout-2.2.1.js"></script>
+<script src="../momentjs/moment.min.js"></script>
+<script src="note.js"></script>
+<style>
+.noteTitle {
+	cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1><span data-bind="text: $root.title"></span> Notebook (<span data-bind="text: notes().length"></span> Notes)</h1>
+<table border="1">
+	<thead>
+		<tr>
+			<td>Title</td>
+			<td>Created</td>
+			<td>&nbsp;</td>
+		</tr>
+	</thead>
+	<tbody data-bind="foreach: notes">
+		<tr>
+			<td data-bind="text: title, click: $root.viewNote" class="noteTitle"></td>
+			<td data-bind="text: formattedDate"></td>
+			<td><a href="#" data-bind="click: $root.removeNote">Delete</a></td>
+		</tr>
+	</tbody>
+</table>
+
+
+<div data-bind="with: selectedNote">
+	<h2 data-bind="text: title()"></h2>
+	<p data-bind="text: body()"></p>
+</div>
+
+
+<hr/>
+
+<form>
+<input type="text" name="title" placeholder="Note Title" data-bind="value:titleToAdd"><br/>
+<textarea name="body" placeholder="Note Body" data-bind="value:bodyToAdd"></textarea><br/>
+<button data-bind="click: addNote">Add Note</button>
+</form>
+
+</body>
+</html>

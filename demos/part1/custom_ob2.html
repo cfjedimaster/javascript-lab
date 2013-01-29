@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<script language="javascript">
+
+function makeTeam(name) {
+	var team = {};
+	team.name = name;
+	team.scores = [];
+
+	team.addScore = function(x) {
+		team.scores.push(x);		
+	}
+
+	return team;
+}
+
+var saints = makeTeam("Saints");
+saints.addScore(9);
+alert(saints.scores[0]);
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

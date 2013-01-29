@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<script src="../jquery.min.js"></script>
+<script language="javascript">
+
+$(document).ready(function() {
+
+    $("#doIt").on("click", function(e) {
+        e.preventDefault();
+        
+        var s = "<H2>Your Bio!</h2>";
+        s += "<p>Your name is ";
+        s += $("#name").val();
+        s += ". Your age is ";
+        s += $("#age").val();
+        s += ". And your <b>favorite</b> movie is ";
+        s += $("#favmovie").val();
+        s += ".</p>";
+        
+        $("#result").html(s);
+    });
+    
+});
+
+</script>
+</head>
+
+<body>
+
+Name: <input type="text" id="name"><br/>
+Age: <input type="number" id="age"><br/>
+Favorite Movie: <input type="text" id="favmovie" list="movies"><br/>
+<datalist id="movies">
+    <option>Star Wars</option>
+    <option>The Godfather</option>
+    <option>Vanilla Sky</option>
+</datalist>
+<button id="doIt">Do It</button>
+
+<div id="result"></div>
+
+</body>
+</html>

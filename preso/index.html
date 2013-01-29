@@ -1,0 +1,1563 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>JavaScript Lab</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<section>
+					<h1>JavaScript</h1>
+					<h3>The Other White Meat</h3>
+					<p>
+						<small>By <a href="http://www.raymondcamden.com">Raymond Camden</a> / <a href="http://twitter.com/cfjedimaster">@cfjedimaster</a></small>
+					</p>
+				</section>
+
+				<section>					
+					<h2>Who am I?</h2>
+					<ul>
+						<li>Developer Evangelist for Adobe</li>
+						<li>Web Standards, HTML5, JavaScript, Mobile</li>
+						<li>Blogging at www.raymondcamden.com</li>
+					</ul>
+					<img src="img/ray.png" class="transparent">
+
+				</section>
+
+				<section>
+					<h1>Who are you?</h1>
+				</section>
+
+				<section>
+					<h2>The Quest</h2>
+					<img src="img/indy.jpg">
+					<!-- This is where I riff on my history of client/server, 
+					the move back, and the problem 
+					-->
+				</section>
+
+				<section>
+					<h2>It began well...</h2>
+					<img src="img/netscape_navigator_2.png" title="1995 - Holy Crap" class="fragment">
+				</section>
+
+				<section>
+					<h2>And then this happened... </h2>
+					<img src="img/aboutie6.gif" class="fragment">
+				</section>
+
+				<section>
+					<h2>RETREAT!</h2>
+					<img src="img/Server-room6.jpg" class="fragment">
+				</section>
+
+				<section>
+					<h2>What got me back...</h2>
+					<img src="img/ajax.jpg" class="fragment" style="float:left;width:340px;">
+					<img src="img/icanhashtml5.jpg" class="fragment" style="float:right;">
+				</section>
+
+				<section>
+					<h2>What I saw next...</h2>
+					<img src="img/yunowork.jpg" class="fragment">
+				</section>
+
+				<section>
+					<img src="img/thatword.jpg" class="fragment">
+				</section>
+
+				<section>
+					<h2>The Plan</h2>
+					<ul>
+						<li>What is JavaScript?</li>
+						<li>How do I debug JavaScript?</li>
+						<li>What are all these libraries?!?</li>
+						<li>What do I do next?</li>
+						<li>Bio breaks about once an hour</li>
+					</ul>
+				</section>
+
+				<!-- What is JS -->
+				<section>
+
+					<section>
+						<h1>What is JavaScript</h1>
+					</section>
+
+					<section>
+						<h2>What is JavaScript (high level)</h2>
+						<ul>
+							<li class="fragment">A programming language</li>
+							<li class="fragment">Implemented in browsers, <i>and elsewhere!</i></li>
+							<li class="fragment">A standard (ECMAScript	5.1) (<a href="https://developer.mozilla.org/en-US/docs/JavaScript/Language_Resources">more info</a>)</li>
+							<li class="fragment">Old news, but to be clear, nothing to do with Java</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>What is JavaScript (low level)</h2>
+						<ul>
+							<li class="fragment">A way (but not the only way) to add interactivity to a web page</li>
+							<li class="fragment">Add, remove, and modify parts of a web page via the DOM</i></li>
+							<li class="fragment">Retreive data from various APIs for use in the browser</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>How is it used in the browser?</h2>
+						<ul>
+							<li>Attributes of an HTML tag (not recommended)</li>
+							<li>Via &lt;script&gt; tag</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Attributes of a HTML tag</h2>
+						<pre><code>
+&lt;p onclick="execute some stuff"&gt;
+						</code></pre>
+						<p class="fragment">Yeah, don't do this.</p>
+					</section>
+
+					<section>
+						<h2>Script Tag</h2>
+						<pre><code>
+&lt;script type="text/javascript" src="somefile.js" /&gt;
+
+&lt;script type="text/javascript"&gt;
+code here...
+&lt;/script&gt;
+						</code></pre>
+
+					</section>
+
+					<section>
+						<h2>Playing (I mean learning)</h2>
+						<ul>
+							<li>Create a blank HTML file</li>
+							<li>Drop in a script block</li>
+							<li>Write JS</li>
+							<li>View in browser</li>
+							<li class="fragment">Just like HTML...</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Playing (online)</h2>
+						<p>
+							jsbin.com
+						</p>
+						<img src="img/jsbin.png">
+					</section>
+
+					<section>
+						<h2>Playing (online)</h2>
+						<p>
+							jsfiddle.net
+						</p>
+						<img src="img/jsfiddle.png">
+					</section>
+
+					<section>
+						<h2>Language Bits</h2>
+						<ul>
+							<li>Dynamically/Weak typed</li>
+							<li>Some core types and objects</li>
+							<li>Case sensitive</li>
+							<li>Prototype based (maybe not "pure" OO but let's not get picky)</li>
+							<!--
+							Great SO article on the OO part: http://stackoverflow.com/questions/107464/is-javascript-object-oriented
+							-->
+						</ul>
+					</section>
+
+					<section>
+						<h2>Types of variables</h2>
+						<ul>
+							<li>
+								Simple (aka primitive) values
+								<ul>
+									<li>numbers, booleans (true or false), strings (letters), null, and undefined</li>
+								</ul>
+							</li>
+							<li>
+								Complex values
+								<ul>
+									<li>Arrays, functions, objects</li>
+								</ul>
+							</li>
+							<li>Variables must start with a letter, underscore (_), or dollar sign ($); subsequent characters can also be digits (0-9). Because JavaScript is case sensitive, letters include the characters "A" through "Z" (uppercase) and the characters "a" through "z" (lowercase). [Credit: MDN]</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Examples</h2>
+						<pre><code>
+x = 9;
+y = 1.2;
+z = "Ray";
+x = 'Mond';
+beer = true;							
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Numbers</h2>
+						<ul>
+							<li>Numbers in JS are "double-precision 64-bit format IEEE 754 values"</li>
+							<li class="fragment">In English: They do weird crap with decimals</li>
+							<li class="fragment">You aren't landing on the Moon with this</li>
+							<li class="fragment">0.1 + 0.2 == <span class="fragment">0.30000000000000004</span></li>
+							<li class="fragment">Perfectly fine for normal mathematical operations</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Robust Math</h2>
+						<ul>
+							<li>+,-,*,/</li>
+							<li>% (modulo, or remainder), parenthesis</li>
+							<li>Math object provides a variety of basic operations</li>
+							<li>Math.sin(), Math.cos(), Math.PI</li>
+							<li>Infinity and -Infinity</li>
+							<li>Other functions</li>
+						</ul>
+					</section>
+
+					<section>
+						<h1>Examples (GoTo JSFiddle)</h1>
+					</section>
+
+					<section>
+						<h2>Strings</h2>
+						<ul>
+							<li>Delimited by double or single quotes</li>
+							<li>Must be escaped (\) inside</li>
+							<li>Ex: "The quote is \"We rule!\""</li>
+							<li>Ex: 'The quote is "We rule!"'</li>
+							<li>Special characters exist: \n for newline</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Robust Strings</h2>
+						<ul>
+							<li>You can add strings together. "Ray" + " " + "Camden"</li>
+							<li>Length property</li>
+							<li>Methods like charAt, endsWith, indexOf, split</li>
+							<li>These act on the variables itself</li>
+					</section>
+
+					<section>
+						<h1>Examples (GoTo JSFiddle)</h1>
+						<!--
+						Show adding, replace, indexOf, split, and a \n example
+						-->
+					</section>
+
+					<section>
+						<h2>Numbers and Strings</h2>
+						<img src="img/westsidestory.jpg">
+						<div class="fragment">
+						<pre><code>
+x = "1";
+y = 2;
+alert(x+y);
+						</code></pre>
+						</div>
+					</section>
+
+					<section>
+						<h2>parseInt and parseFloat</h2>
+						<ul>
+							<li>parseInt(input, radix)</li>
+							<li>Just use 10 for radix</li>
+						</ul>
+						<pre><code>
+x = "1";
+y = 2;
+x = parseInt(x, 10);
+alert(x+y);
+
+						</pre></code>
+					</section>
+
+					<section>
+						<h2>Control</h2>
+						<ul>
+							<li>if+else</li>
+							<li>while and do while</li>
+							<li>switch</li>
+							<li>for</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>if</h2>
+						<pre><code>
+if(some condition) do something
+
+if(some condition) {
+	do something
+}
+						</pre></code>
+					</section>
+
+					<section>
+						<h2>What the heck is ==?</h2>
+						<ul>
+							<li>x=1 implies an assignment. "I'm setting x equal to 1."</li>
+							<li>so if(x=1) means if( is the result of setting x to 1 true?)</li>
+							<li>x==1 implies comparison</li>
+							<li>Note: === also exists</li>
+						</ul>
+					</section>
+
+					<section>
+						<h1>Examples</h1>
+						<!--
+    x = 1;
+    if(x == 1) alert('1'); alert('2');
+then change x to 2
+
+show
+ x = 1;
+    if(x=2) alert('what???')
+
+
+						-->
+					</section>
+
+					<section>
+						<h2>if/else</h2>
+						<pre><code>
+
+if(some condition) {
+	do something
+} else {
+	do something else
+}
+						</pre></code>
+					</section>
+
+					<section>
+						<h2>There is no "elseif"</h2>
+						<pre><code>
+
+if(some condition) {
+	do something
+} else if(something else) {
+	do something else
+} else {
+	ok I give up
+}
+						</pre></code>
+					</section>
+
+					<section>
+						<h2>While and Do/While</h2>
+						<ul>
+							<li>Runs while something is true</li>
+							<li>While may never run</li>
+							<li>Do While always runs once</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>While Example</h2>
+						<pre><code>
+x = 5;
+while(x &lt; 10) {
+	alert(x);
+	x = x-1;
+}
+
+						</pre></code>
+					</section>
+
+					<section>
+						<h2>Do While Example</h2>
+						<pre><code>
+x = 5;
+do {
+	alert(x);
+	x = x-1;
+} while(x &gt; 1)
+
+						</pre></code>
+					</section>
+
+					<section>
+						<h2>Switch</h2>
+						<p>
+							Good for lots of IF type checks
+						</p>
+					</section>
+
+					<section>
+						<h2>Ugly, but workable, If example</h2>
+						<pre><code>
+x = 5;
+
+if(x == 1) {
+	do something
+} else if(x == 2) {
+	do something else
+} else if(x == 3) {
+	do yet another thing
+} else if(x == 4 ) {
+	my god r we done yet
+} else {
+	finally
+}
+
+						</pre></code>
+					</section>
+
+					<section>
+						<h2>Better, because I said so</h2>
+						<pre><code>
+x = 5;
+switch(x) {
+
+	case 1: {
+		do something;
+		break;
+	}
+	case 2: {
+		do something;
+		break;
+	}
+	case 3: {
+		do something;
+		break;
+	}
+	case 4: {
+		do something;
+		break;
+	}
+	default: {
+		the final option;
+	}
+}
+						</code></pre>
+					</section>
+
+					<section>
+						<h1>Examples (Local)</h1>
+						<!--
+						-->
+					</section>
+
+					<section>
+						<h2>for</h2>
+						<ul>
+							<li>Looping X times</li>
+							<li>Useful when iterating over a list</li>
+						</ul>
+						<pre><code>
+for(x=1; x &lt; 5; x=x+1) {
+	alert(x);
+}
+
+for(y=10; y &gt; 0; y=y-2) {
+	alert(y);
+}
+
+for(x=1; x &lt; 5; x++) {
+	alert(x);
+}
+
+						</pre></code>
+					</section>
+
+					<section>
+						<h1>Examples</h1>
+						<!--
+						-->
+					</section>
+
+					<section>
+						<h2>Comments</h2>
+						<ul>
+							<li>Two styles: One line and Multi line</li>
+						</ul>
+						<pre><code>
+//This is a single line comment
+
+/*
+This is a multi line comment.
+Yeah, multiple lines.
+*/
+
+var x = 1; //Wow, x is 1
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Arrays and Objects</h2>
+						<ul>
+							<li>Both used to store data together in a collection</li>
+							<li class="fragment">Arrays store data in a numeric index</li>
+							<li class="fragment">A set of data you want to <b>retrieve</b> in a numbered format, use an array. Ex: 10 scores of a football team.</li>
+							<li class="fragment">Objects store data in a keyed index</li>
+							<li class="fragment">A set of data you want to <b>retrieve</b> by a named key, use an object. Ex: The team's coach is X, the team's QB is Y.</li>
+							<li class="fragment">Imagine an object with values for the coach and QB as well as the scores</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Arrays</h2>
+						<ul>
+							<li>Can be declared literally or in a fancy verbose manner.</li>
+						</ul>
+						<pre><code>
+x = new Array();
+x[0] = "Ray";
+x[1] = "Camden";
+
+y = ["Ray", "Camden"];
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Arrays</h2>
+						<ul>
+							<li>All have a length property</li>
+							<li>Indexed by numbers... <b style="color:red"><u>that start at 0</u></b></li>
+							<li>And have methods (push, pop, sort, slice, concat, etc)</li>
+						</ul>
+					</section>
+
+					<section>
+						<h1>Examples (Local)</h1>
+					</section>
+
+					<section>
+						<h2>Objects</h2>
+						<ul>
+							<li>Can be declared literally or in a fancy verbose manner.</li>
+						</ul>
+						<pre><code>
+team = new Object();
+team.coach = "Sean Peyton";
+team["quaterback dude"] = "Noah Camden";
+
+team = {coach:"Ray", "quarterback dude":"Camden"};
+						</code></pre>
+
+					</section>
+
+					<section>
+						<h1>Examples (Local)</h1>
+					</section>
+
+					<section>
+						<h1>Functions</h1>
+						<ul>
+							<li>Allow you to abstract and reuse a "process"</li>
+							<li class="fragment">Basic idea is - if you find yourself repeating something, stop</li>
+						</ul>
+						<!-- example of sales tax -->
+					</section>
+
+					<section>
+						<h2>Example</h2>
+						<pre><code>
+function someprocess() {
+	do magic
+	return a value
+}
+
+function someotherprocess(input) {
+	based on input, do stuff
+	return the result
+}
+						</code></pre>
+					</section>
+
+					<section>
+						<h1>Example (JSFiddle)</h1>
+					</section>
+
+					<section>
+						<img src="img/screwed.jpg">
+					</section>
+
+					<section>
+						<h2>Scopes</h2>
+						<ul>
+							<li>Implicit Global Scope</li>
+							<li class="fragment">Function local scope</li>
+						</ul>
+					</section>
+
+					<section>
+						<h1>Example (Local)</h1>
+					</section>
+
+					<section>
+						<h2>The Fix</h2>
+						<ul>
+							<li>var keyword</li>
+							<li>Marks the variable as belonging to the function</li>
+						</ul>
+					</section>
+
+					<section>
+						<h1>Example (Local)</h1>
+					</section>
+
+					<section>
+						<h2>Custom Objects</h2>
+						<p>
+							Fancy way of saying - some code that will create an object for me.
+						</p>
+					</section>
+
+					<section>
+						<h2>Example</h2>
+						<pre><code>
+function makeTeam(name) {
+	var team = {};
+	team.name = name;
+	team.scores = [];
+	return team;
+}
+
+var saints = makeTeam("Saints");
+alert(saints.name);
+						</code></pre>
+					</section>
+
+					<section>
+						<h1>Example (Local)</h1>
+					</section>
+
+					<section>
+						<h2>Custom Objects</h2>
+						<p>
+							But we can do more - an object may contain both data and behavior! 
+						</p>
+					</section>
+
+					<section>
+						<h2>Example</h2>
+						<pre><code>
+function makeTeam(name) {
+	var team = {};
+	team.name = name;
+	team.scores = [];
+
+	team.addScore = function(x) {
+		team.scores.push(x);		
+	}
+
+	return team;
+}
+
+var saints = makeTeam("Saints");
+saints.addScore(9);
+alert(saints.scores[0]);
+						</code></pre>
+					</section>
+
+					<section>
+						<h1>Example (Local)</h1>
+					</section>
+
+					<section>
+						<h2>Custom Objects - New and This</h2>
+						<p>
+							We can also create constructors, which support a concept of creating objects via the new syntax. The This scope then refers to the current instant of the object.
+						</p>
+					</section>
+
+					<section>
+						<h2>Example</h2>
+						<pre><code>
+function Team(name) {
+	this.name = name;
+	this.scores = [];
+
+	this.addScore = function(x) {
+		this.scores.push(x);		
+	}
+}
+
+var saints = new Team("Saints");
+saints.addScore(9);
+alert(saints.scores[0]);
+						</code></pre>
+					</section>
+
+					<section>
+						<h1>Example (Local)</h1>
+					</section>
+
+					<section>
+						<h2>Custom Objects - Prototype</h2>
+						<ul>
+							<li>Every object has a prototype</li>
+							<li>Think of it like the mold to make a new toy</li>
+							<li>You can add properties to a prototype that are shared automatically</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Example</h2>
+						<pre><code>
+function Team(name) {
+	this.name = name;
+	this.scores = [];
+}
+
+Team.prototype.addScore = function(x) {
+	this.scores.push(x);
+}
+
+var saints = new Team("Saints");
+saints.addScore(9);
+alert(saints.scores[0]);
+						</code></pre>
+					</section>
+
+					<section>
+						<h1>Example (Local)</h1>
+					</section>
+
+					<section>
+						<h2>Inner Functions</h2>
+						<ul>
+							<li>You saw an example of this earlier</li>
+							<li>Useful way to abstract a utility within a utility itself</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Example</h2>
+						<pre><code>
+function doX(name) {
+	var x = 0;
+	var result = "";
+
+	function doSomethingSpecial() {
+		x++;
+	}
+
+	doSomethingSpecial();
+	result = "I called my inner func "+x+" times.";
+	return result;
+}
+
+alert(doX());
+
+						</code></pre>
+					</section>
+
+					<section>
+						<h1>Example (Local)</h1>
+					</section>
+
+					<section>
+						<h1>Closures</h1>
+						<img src="img/confusing-clock.jpg">
+					</section>
+
+					<section>
+						<h2>Closures</h2>
+						<ul>
+							<li class="fragment">A way for a function to create a function</li>
+							<li class="fragment">... that still has access to the scope it was created in</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Example (THX MDN!)</h2>
+						<pre><code>
+function makeAdder(x) {
+	return function(y) {
+		return x+y;
+	}
+}
+
+addOne = makeAdder(1);
+addTwo = makeAdder(2);
+
+alert(addOne(9));
+alert(addTwo(10));
+						</code></pre>
+					</section>	
+
+					<section>
+						<h1>Example (Local)</h1>
+					</section>			
+					
+					<section>
+						<h2>Other Core Objects</h2>
+						<ul>
+							<li>Date</li>
+							<li>RegExp</li>
+						</ul>
+					</section>						
+
+					<section>
+						<h1>Example (Local)</h1>
+					</section>			
+
+<style>
+.dom .reveal .state-background {
+	background-image:url("img/courage-wolf.jpg");
+	background-size: 100%;
+	}
+h1.top2 {
+	top:0px;
+}
+</style>
+					<section data-state="dom">
+						<h1 class='top'>ENTER THE DOM</h1>
+					</section>
+
+					<section>
+						<h2>The Document Object Model</h2>
+						<ul>
+							<li>Standard, uniform API for HTML (and XML)</li>
+							<li>This is how you interact with the page being shown</li>
+							<li>Adding, modifying, and remove items from the DOM</li>
+							<li>Listening for events on the DOM</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Using the DOM</h2>
+						<ul>
+							<li>Just more top level objects</li>
+							<li>window</li>
+							<li>document</li>
+							<li>element</li>
+							<li>nodeList (list of elements)</li>
+							<li>attribute</li>
+							<li>namedNodeMap (collection of attributes)</li>	
+							<li>console (crucial for testing!!)</li>						
+						</ul>
+					</section>
+
+					<section>
+						<h2>Common APIs</h2>
+						<ul>
+							<li>document.getElementById(id)</li>
+							<li>element.innerHTML</li>
+							<li>element.getElementsByTagName(name)</li>
+							<li>document.createElement(name)</li>
+							<li>element.set(get)Attribute</li>
+							<li>element.addEventListener</li>
+							<li>window.onload</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Practical Example (in English)</h2>
+						<p>
+							Modify the submit button so that when clicked, I get the value of a form field. If
+							the value isn't to my liking, I prevent the form from being submitting and modify the contents of a DIV tag to report an error.
+						</p>
+					</section>
+
+					<section>
+						<h1>Example (Local)</h1>
+					</section>			
+
+				</section><!-- End what is JS section -->
+
+				<section>
+					<section>
+						<h1>BREAK!</h1>
+					</section>
+				</section>
+
+				<!-- section on testing/debugging -->
+				<section>
+
+					<section>
+						<h1>What to do when it won't do...</h1>
+						<img src="img/notworking.jpg">
+					</section>
+
+					<section>
+						<h1>So, um, we have a problem</h1>
+					</section>
+
+					<section>
+						<h1>It isn't the bugs</h1>
+					</section>
+
+
+<style>
+.bug .reveal .state-background {
+	background-image:url("img/bug.png");
+	background-size: cover;
+	}
+h1.top2 {
+	top:0px;
+}
+</style>
+					<section data-state="bug">
+					</section>
+
+
+					<section>
+						<h1>The problem is finding the bug</h1>
+					</section>
+
+<style>
+.waldo .reveal .state-background {
+	background-image:url("img/waldo.png");
+	background-size: cover;
+	}
+h1.top2 {
+	top:0px;
+}
+</style>
+					<section data-state="waldo">
+					</section>
+
+					<section>
+						<img src="img/jqm.png">
+					</section>
+
+					<section>
+						<h2>What has to work...</h2>
+						<ul>
+							<li class="fragment">JavaScript enabled</li>
+							<li class="fragment">jQuery Loaded</li>
+							<li class="fragment">jQuery UI</li>
+							<li class="fragment">jQuery UI CSS</li>
+							<li class="fragment">Have to select the right DOM for the autocomplete</li>
+							<li class="fragment">Have to ensure your setup options match what the control needs</li>
+							<li class="fragment">Have to ensure your data source (which is probably remote) is working right</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Lots of Opportunities</h2>
+						<img src="img/fail.png" style="width:400px">
+					</section>
+
+					<section>
+						<h2>The First Bug</h2>
+						<h3>is one your probably don't know you have</h3>
+						<img src="img/wtf.png">
+					</section>
+
+					<section>
+						<h2>Can you spot the bug?</h2>
+						<img src="img/good.png">
+					</section>
+
+<style>
+.whatmeworry .reveal .state-background {
+	background-image:url("img/whatmeworry.png");
+	background-size: 500px;
+	}
+h1.top2 {
+	top:0px;
+}
+</style>
+					<section data-state="whatmeworry">
+					</section>
+
+					<section>
+						<h2>Being Proactive</h2>
+						<ul>
+							<li>Using the tools we're going to cover later</li>
+							<li>Unit Testing</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Chrome Extensions</h2>
+						<ul>
+							<li>javascript-error-notifier</li>
+							<li><a href="http://code.google.com/p/javascript-error-notifier/">http://code.google.com/p/javascript-error-notifier/</a></li>
+						</ul>
+						<img src="img/error.png">
+					</section>
+
+					<section>
+						<h1>Demo</h1>
+					</section>		
+
+					<section>
+						<h2>{errorception}</h2>
+						<ul>
+							<li><a href="http://errorception.com">http://errorception.com</a></li>
+							<li>30 day trial</li>
+							<li>$5 plan that reports up to 500 errors</li>
+							<li>Works via a simple embed</li>
+						</ul>
+					</section>	
+
+					<section>
+						<img src="img/ec1.png">
+					</section>
+
+					<section>
+						<img src="img/ec2.png">
+					</section>
+
+					<section>
+						<img src="img/ec3.png">
+					</section>
+
+					<section>
+						<h2>You've got a bug, now what?</h2>
+						<ul>
+							<li>Learn your browser tools</li>
+							<li>It doesn't necessarily matter if it's not your standard browser</li>
+							<li>And guess what - you can use more than one (really)</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Chrome Dev Tools</h2>
+						<ul>
+							<li>Wrench -&gt; Tools -&gt; Developer Tools</li>
+							<li>Keyboard combo</li>
+							<li>Run at bottom, right, detached</li>
+						</ul>
+					</section>
+
+					<section>
+						<h1>Demo</h1>
+					</section>		
+
+					<section>
+						<h2>What we care about...</h2>
+						<ul>
+							<li>Console</li>
+							<li>Network</li>
+							<li>Elements</li>
+							<li>Sources</li>
+							<li>Resources</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Console</h2>
+						<ul>
+							<li>Errors show up here</li>
+							<li>You can run commands here as well</li>
+							<li>You can view log messages here</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Console API</h2>
+						<ul>
+							<li>Your code can send messages to the console (<b>STOP USING ALERTS!</b>)</li>
+							<li>I use the heck out of this</li>
+							<li>No, really, I make logs like a lumberjack</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Console API</h2>
+						<ul>
+							<li><a href="http://getfirebug.com/wiki/index.php/Console_API">http://getfirebug.com/wiki/index.php/Console_API</a></li>
+							<li>log(), dir()</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Examples</h2>
+						<pre><code>
+console.log("This works");
+
+console.log("What is x?? "+x);
+
+console.log("X", x);
+
+console.log(object);
+						</code></pre>
+
+						<p class="fragment">
+							PRO TIP: <span class="fragment">The more you curse in your messages the quicker your code gets fixed!</span>
+						</p>
+					</section>
+
+					<section>
+						<h1>Demo</h1>
+						<aside class="notes">
+And log to document ready
+Add log for click event
+Show (*"$simButton") in console not working.
+show elements and hunt for it
+						</aside>
+					</section>		
+
+					<section>
+						<h2>console.dir()</h2>
+						<ul>
+							<li>Dumps an object, not a simple value</li>
+							<li>Good for complex data</li>
+							<li>Good for figuring out the API to stuff</li>
+							<li>Firefox does it a bit nicer</li>
+						</ul>
+					</section>
+
+					<section>
+						<h1>Demo</h1>
+						<aside class="notes">
+						just show it on navigator, window
+						</aside>
+					</section>	
+
+					<section>
+						<h2>Network Requests</h2>
+						<ul>
+							<li>Check the output</li>
+							<li>Look for things like redirects or errors</li>
+							<li>JSON/P is a bit different</li>
+						</ul>
+					</section>
+
+					<section>
+						<h1>Demo</h1>
+						<aside class="notes">
+						demo3 + jsonp
+						</aside>
+					</section>
+
+					<section>
+						<h2>Elements</h2>
+						<ul>
+							<li>Handy for looking at your DOM</li>
+							<li>Which may be dynamic (ColdFusion, Ruby, PHP, etc)</li>
+							<li>Which may be dynamic (JavaScript)</li>
+						</ul>
+					</section>
+
+					<section>
+						<h1>Demo</h1>
+						<aside class="notes">
+							demo 4, test1 failing
+							test 2 - bad html
+						</aside>
+					</section>
+
+					<section>
+						<h2>Sources</h2>
+						<ul>
+							<li>Losts of all the scripts on your page</li>
+							<li>Also - a debugger</li>
+						</ul>
+						<aside class="notes">
+							Don't forget to show pretty print
+						</aside>
+					</section>
+
+					<section>
+						<h2>Debugger Key Terms</h2>
+						<ul>
+							<li>Breakpoints
+								<ul>
+									<li>Specific</li>
+									<li>Dynamic</li>
+									<li>DOM Change, XHR, Events</li>
+								</ul>
+							</li>
+							<li>Stepping (i.e. what to do on stop)</li>
+						</ul>
+					</section>
+
+					<section>
+						<h1>Demo</h1>
+						<aside class="notes">demo 5</aside>
+					</section>
+
+					<section>
+						<h2>Resources</h2>
+						<ul>
+							<li>Cookies, Databases, IndexedDB, Local (and Session) Storage, Application Cache</li>
+							<li>As well as HTML, JS, and CS</li>
+						</ul>
+					</section>
+
+					<section>
+						<h1>Demo</h1>
+					</section>
+
+				</section><!-- End debugging -->
+
+				<section>
+					<section>
+						<h1>BREAK!</h1>
+					</section>
+				</section>
+
+				<!-- frameworks section -->
+				<section>
+
+					<section>
+						<h1>Library-Apolooza</h1>
+					</section>
+
+					<section>
+						<h2>First - The Good News</h2>
+						<img src="img/hammer.jpg" class="fragment">
+					</section>
+
+					<section>
+						<h2>Then - The Bad News</h2>
+						<img src="img/tools.jpg" class="fragment">
+					</section>
+
+					<section>
+						<h2>jster.net</h2>
+						<img src="img/jster.png">
+					</section>
+
+					<section>
+						<h2>The Number One Lesson</h2>
+						<ul>
+							<li class="fragment">Each of these libraries solve a problem</li>
+							<li class="fragment">If you don't have a problem, don't make yourself one</li>
+							<li class="fragment">Best thing to do is understand solutions exist and tailor your search to those problems</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Types of Libraries (Rough!)</h2>
+						<ul>
+							<li>DOM Manipulation (and Ajax typically)</li>
+							<li>User Interface (make crap pretty!)</li>
+							<li>Data type helpers (improve arrays, improve dates, etc)</li>
+							<li>Architecture</li>
+							<li>Testing</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>DOM Manipulation</h2>
+						<ul>
+							<li>What they do: Make it easier to find and modify stuff on the page</li>
+							<li>Many of these also help with Ajax</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>DOM Manipulation - Examples</h2>
+						<ul>
+							<li>jQuery (jquery.com)</li>
+							<li>Prototype (prototypejs.org)</li>
+							<li>Zepto (zeptojs.com)</li>
+							<li>MooTools (mootools.net)</li>
+							<li>Dojo (dojotoolkit.org)</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>DOM Manipulation - jQuery</h2>
+						<ul>
+							<li>Uses a CSS-based metaphor for finding items</li>
+							<li>Makes Ajax pretty darn easy to use</li>
+							<li>*Hugely* successful</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>jQuery Examples</h2>
+					</section>
+
+					<section>
+						<h2>UI Libraries</h2>
+						<ul>
+							<li>What they do: Allow for advanced UI not supported in HTML</li>
+							<li>Many of these work by taking 'regular' HTML and enhancing it</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>UI Libraries - Examples</h2>
+						<ul>
+							<li>Sencha Ext JS (sencha.com/products/extjs)</li>
+							<li>iUI (code.google.com/p/iui/)</li>
+							<li>Yahoo! YUI (yuilibrary.com)</li>
+							<li>jQuery UI (jqueryui.com)</li>
+							<li>jQuery Tools (jquerytools.org)</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>UI Libraries - jQuery UI</h2>
+						<ul>
+							<li>Built with jQuery</li>
+							<li>Interactions, Widgets, and Effects</li>
+							<li>Multiple themes</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>jQuery UI Examples</h2>
+					</section>
+
+					<section>
+						<h2>Data Type Helpers</h2>
+						<ul>
+							<li>Generic "If working with X, I help you" type things</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Data Type Helpers - Examples</h2>
+						<ul>
+							<li>Underscore (documentcloud.github.com/underscore/)</li>
+							<li>typeface.js (typeface.neocracy.org/)</li>
+							<li>Moment.js (momentjs.com)</li.
+						</ul>
+					</section>
+
+					<section>
+						<h2>Data Type Helpers - Moment.js</h2>
+						<ul>
+							<li>Helps parse dates</li>
+							<li>Helps validate dates</li>
+							<li>Helps manipulate dates</li>
+							<li>Helps format dates</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Moment.js Examples</h2>
+					</section>
+
+					<section>
+						<h2>Architecture</h2>
+						<ul>
+							<li>Help organize your code</li>
+							<li>FYI - GMail has over 400K lines of code</li>
+							<li>Help separate concerns</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Archticture - Examples</h2>
+						<ul>
+							<li>RequireJS (requirejs.org)</li>
+							<li>Backbone (backbonejs.org)</li>
+							<li>Knockout.js (knockoutjs.com)</li>
+							<li>Angular (angularjs.org)</li>
+							<li>Batman.js (batmanjs.org)</li>
+						</ul>
+					</section>
+
+					<!-- TODO - Knockout Example -->
+
+					<section>
+						<h2>Testing</h2>
+						<img src="img/testing.jpg">
+					</section>
+
+					<section>
+						<h2>Testing</h2>
+						<ul>
+							<li>A way to prove your code works</li>
+							<li class="fragment">
+								Given that your code does X, if you modify it to add
+								some feature or fix a bug, how can you be sure that everything it did before still works?
+							</li>
+							<li class="fragment">
+								Tests
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Moment.js Tests</h2>
+						<p>
+							<a href="http://momentjs.com/test/" target="_new">http://momentjs.com/test/</a>
+						</p>
+					</section>
+
+					<section>
+						<h2>Testing - Examples</h2>
+						<ul>
+							<li>qUnit (docs.jquery.com/QUnit)</li>
+							<li>Mocha (visionmedia.github.com/mocha/)</li>
+							<li>Tutti (tuttijs.com)</li>
+							<li>Jasmine (pivotal.github.com/jasmine)</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Testing - Jasmine</h2>
+						<ul>
+							<li>"Behavior-driven" tests</li>
+							<li>"This should do X..."</li>
+							<li>English-language type code</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Jasmine Examples</h2>
+					</section>
+
+				</section>
+
+				<!-- Frameworks and Libs -->
+				<!--
+				*jQuery
+				*jQuery UI
+				Handlebars
+				*Moment.js
+				*Someting MVC
+				*unit testing thing - jasmine
+				mobile?
+				-->
+
+				<!-- where next -->
+				<section>
+
+<style>
+.choose .reveal .state-background {
+	background-image:url("img/choose.jpg");
+	background-size: cover;
+	}
+h1.top2 {
+	top:0px;
+}
+</style>
+					<section data-state="choose">
+					</section>
+
+					<!-- Credit Jeff Atwood -->
+					<!-- http://www.codinghorror.com/blog/2008/03/choosing-your-own-adventure.html -->
+					<section data-state="flowchart">
+						<img src="img/flow.png">
+						<p style="float:right"><i>Credit Jeff Atwood</i></p>
+					</section>
+
+					<section>
+						<h2>Books</h2>
+						<img src="img/jsbooks.jpg" class="fragment">
+					</section>
+
+					<section>
+						<h2>Books</h2>
+						<ul>
+							<li>JavaScript: The Definitive Guide</li>
+							<li>JavaScript: The Good Parts</li>
+							<li>Eloquent JavaScript</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Sites</h2>
+						<ul>
+							<li>MDN (developer.mozilla.org)</li>
+						</ul>
+						<img src="img/mdn.png">
+					</section>
+
+					<section>
+						<h2>Mailing Lists</h2>
+						<p>
+							<img src="img/jsweekly.png"><br/>
+						</p>
+					</section>
+
+					<section>
+						<h2>More...</h2>
+						<ul>
+							<li>Conferences</li>
+							<li>Training</li>
+						</ul>
+					</section>
+
+					<section>
+						<img src="img/press_to_operate_donkeys.jpg">
+					</section>
+
+				</section>
+
+				<!-- This is the end... -->
+				<section>
+					<section>
+						<h2>Thank You!</h2>
+						<ul>
+							<li>I live for your feedback! (raymondcamden.com)</li>
+							<li>github.com/cfjedimaster/javascript-lab</li>
+							<li>Gratuitous pictures of my kids</li>
+						</ul>
+						<img src="img/jacob.jpg" style="float:left">
+						<img src="img/lynn.jpg" style="float:left">
+						<img src="img/noah.jpg" style="float:left">
+					</section>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

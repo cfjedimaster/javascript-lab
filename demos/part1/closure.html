@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<script language="javascript">
+
+function makeAdder(x) {
+	return function(y) {
+		return x+y;
+	}
+}
+
+addOne = makeAdder(1);
+addTwo = makeAdder(2);
+
+alert(addOne(9));
+alert(addTwo(10));
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

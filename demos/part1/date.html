@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+<script language="javascript">
+var dow = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+var thisYear = new Date().getFullYear();
+var thisXMas = new Date("December 25, "+thisYear);
+var xmasdow = dow[thisXMas.getDay()];
+
+alert("XMas in "+thisYear+" falls on "+xmasdow);
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

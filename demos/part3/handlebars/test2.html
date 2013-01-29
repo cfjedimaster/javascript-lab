@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<script src="../jquery.min.js"></script>
+<script src="handlebars.js"></script>
+<script language="javascript">
+
+$(document).ready(function() {
+
+    //get the template source        
+    var source = $("#bioTemplate").html();
+    //create a template
+    var template = Handlebars.compile(source);
+    
+    $("#doIt").on("click", function(e) {
+        e.preventDefault();
+        var data = {
+            name:$("#name").val(),
+            age:$("#age").val(),
+            movie:$("#favmovie").val()
+        };console.dir(data);
+        var s = template(data);
+        $("#result").html(s);
+    });
+    
+});
+
+</script>
+
+<script id="bioTemplate" type="text/x-handlebars-template">
+<h2>Your Bio!</h2>
+<p>
+Your name is {{name}}. Your age is {{age}}.
+And your <b>favorite</b> movie is {{movie}}.
+</p>
+</script>
+</head>
+
+<body>
+
+Name: <input type="text" id="name"><br/>
+Age: <input type="number" id="age"><br/>
+Favorite Movie: <input type="text" id="favmovie" list="movies"><br/>
+<datalist id="movies">
+    <option>Star Wars</option>
+    <option>The Godfather</option>
+    <option>Vanilla Sky</option>
+</datalist>
+<button id="doIt">Do It</button>
+
+<div id="result"></div>
+
+</body>
+</html>

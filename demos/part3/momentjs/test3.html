@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<script src="../jquery.min.js"></script>
+<script src="moment.min.js"></script>
+<script language="javascript">
+
+
+$(document).ready(function() {
+
+	$("#dateEntry").on("change", function(e) {
+		var date = $(this).val();
+		console.log("Working with "+date);
+
+		var tomorrow = moment(date).add('days', 1);
+		var yesterday = moment(date).subtract('days', 1);
+
+		var nextYear = moment(date).add('years', 1);
+
+		//Go Crazy!
+		var crazy = moment(date).add('days',1).subtract('months',1).add('hours',9);
+
+		console.log(tomorrow.format() + '\n' + yesterday.format() + 
+					'\n' + nextYear.format() + '\n' + crazy.format());
+
+
+	});
+
+});
+
+</script>
+</head>
+
+<body>
+
+<input type="date" id="dateEntry">
+
+</body>
+</html>

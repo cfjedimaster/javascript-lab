@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<script src="../jquery.min.js"></script>
+<script language="javascript">
+
+$(document).ready(function() {
+
+	$("#addBeerButton").on("click", function(e) {
+		e.preventDefault();
+		var beer = $("#beerField").val();
+		if(beer == "") return;
+
+		$("#beerList").append("<li>"+beer+"</li>");
+		$("#beerField").val("");
+	});
+	
+});
+
+/*
+var beerList;
+
+window.onload = function() {
+
+	//get that beer button
+	var beerButton = document.getElementById("addBeerButton");
+	//listen for clicks
+	beerButton.addEventListener("click", handleClick, false);
+
+	//get a handle on my list
+	beerList = document.getElementById("beerList");
+}
+
+//e is the event object
+function handleClick(e) {
+	//The form never submits...
+	e.preventDefault();
+
+	var field = document.getElementById("beerField");
+
+	//If nothing there, just go away.
+	if(field.value == "") return;
+
+	var newBeer = document.createElement("li");
+	newBeer.innerText = field.value;
+
+	beerList.appendChild(newBeer);
+
+	//clear out the current value
+	field.value = "";
+	
+}
+*/
+</script>
+</head>
+
+<body>
+
+<form>
+Enter a type of beer: <input type="text" id="beerField">
+<button id="addBeerButton">Add Beer</button>
+</form>
+
+<ul id="beerList">
+</ul>
+
+</body>
+</html>

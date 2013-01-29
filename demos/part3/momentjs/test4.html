@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<script src="../jquery.min.js"></script>
+<script src="moment.min.js"></script>
+<script language="javascript">
+
+
+$(document).ready(function() {
+
+	$("#dateEntry,#dateEntry2").on("change", function(e) {
+		var date = $("#dateEntry").val();
+		var date2 = $("#dateEntry2").val();
+
+		if(date == '' || date2 == '') return;
+
+		var msDiff = moment(date2)-moment(date);
+		var duration = moment.duration(msDiff).humanize();
+
+		console.log('Duration is '+duration);
+	});
+
+});
+
+</script>
+</head>
+
+<body>
+
+From: <input type="text" id="dateEntry">
+To: <input type="text" id="dateEntry2">
+
+</body>
+</html>

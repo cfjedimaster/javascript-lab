@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<script language="javascript">
+var beerList;
+
+/*
+window.onload is a property whose value is a function to call
+*/
+window.onload = function() {
+
+	//get that beer button
+	var beerButton = document.getElementById("addBeerButton");
+	//listen for clicks
+	beerButton.addEventListener("click", handleClick, false);
+
+	//get a handle on my list
+	beerList = document.getElementById("beerList");
+}
+
+//e is the event object
+function handleClick(e) {
+	//The form never submits...
+	e.preventDefault();
+
+	var field = document.getElementById("beerField");
+
+	//If nothing there, just go away.
+	if(field.value == "") return;
+
+	var newBeer = document.createElement("li");
+	newBeer.innerText = field.value;
+	newBeer.setAttribute("title","Click to remove");
+
+	newBeer.addEventListener("click", removeBeer, false);
+	beerList.appendChild(newBeer);
+
+	//clear out the current value
+	field.value = "";
+	
+}
+
+function removeBeer(e) {
+	e.target.parentNode.removeChild(e.target);
+}
+
+</script>
+
+<style>
+ul#beerList li {
+	cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<form>
+Enter a type of beer: <input type="text" id="beerField">
+<button id="addBeerButton">Add Beer</button>
+</form>
+
+<ul id="beerList">
+</ul>
+
+</body>
+</html>

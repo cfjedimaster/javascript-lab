@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<script language="javascript">
+
+/*
+window.onload is a property whose value is a function to call
+*/
+window.onload = function() {
+
+	//get that submit button
+	var submitButton = document.getElementById("submitButton");
+	//listen for clicks
+	submitButton.addEventListener("click", handleClick, false);
+}
+
+//e is the event object
+function handleClick(e) {
+	var field = document.getElementById("ageField");
+
+	var status = document.getElementById("statusDiv");
+
+	if(field.value == "") {
+		status.innerHTML = "<p><b>Enter a darn value!</b></p>";
+		//Stop what you're doing, cause I'm about to ruin the image and the style that you're used to
+		e.preventDefault();
+	} else {
+		//If an error was there, we can remove it
+		status.innerHTML = "";
+		/*
+		We could also disable the submit button and put in a text msg if the form process is slow.
+		*/
+	}
+}
+
+</script>
+</head>
+
+<body>
+
+<form>
+Enter your age: <input type="number" id="ageField" name="age"><br/>
+<input type="submit" id="submitButton">
+</form>
+
+<div id="statusDiv"></div>
+
+</body>
+</html>

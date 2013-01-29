@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<script src="../jquery.min.js"></script>
+<script language="javascript">
+
+$(document).ready(function() {
+
+	$("#getBacon").on("click", function(e) {
+
+		var numb = $("#baconNum").val();
+		if(isNaN(numb)) return;
+
+		$("#result").html("<i>Mmmmm, getting the bacon!</i>");
+		
+		//Courtsey of BaconIpsum
+		$.getJSON('https://baconipsum.com/api/?callback=?', 
+			{ 'type':'meat-and-filler', 
+			  'start-with-lorem':'1', 
+			  'paras':numb 
+			}, function(baconGoodness) {
+				if (baconGoodness && baconGoodness.length > 0) {
+					$("#result").html('');
+					for (var i = 0; i < baconGoodness.length; i++)
+						$("#result").append('<p>' + baconGoodness[i] + '</p>');
+			}
+		});
+
+	});
+	
+});
+
+</script>
+</head>
+
+<body>
+
+<p>
+	How much bacon? <input type="number" id="baconNum"> <button id="getBacon">Get Bacon!</button>
+</p>
+
+<div id="result"></div>
+
+</body>
+</html>

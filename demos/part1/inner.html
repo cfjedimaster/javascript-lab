@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<script language="javascript">
+function doX(name) {
+	var x = 0;
+	var result = "";
+
+	function doSomethingSpecial() {
+		x++;
+	}
+
+	doSomethingSpecial();
+	result = "I called my inner func "+x+" times.";
+	return result;
+}
+
+alert(doX());
+</script>
+</head>
+
+<body>
+</body>
+</html>

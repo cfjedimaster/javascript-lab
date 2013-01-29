@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<script language="javascript">
+function Team(name) {
+	this.name = name;
+	this.scores = [];
+}
+
+Team.prototype.addScore = function(x) {
+	this.scores.push(x);
+}
+
+Team.prototype.toString = function(x) {
+	return this.name + " has played "+this.scores.length+ " games.";
+}
+
+var saints = new Team("Saints");
+saints.addScore(9);
+saints.addScore(90);
+
+alert(saints);
+</script>
+</head>
+
+<body>
+</body>
+</html>

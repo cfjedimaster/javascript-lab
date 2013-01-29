@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<script language="javascript">
+
+var input = "This was the beginning of the end of beers for us. We drank no more.";
+
+
+//Match, case-insensitive, leaf or leaves
+var reg = /lea[f|(ves)]/i;
+
+if(reg.test(input)) {
+	alert('Yes a match to leaf or leaves was found.');
+} else {
+	alert('No match was found.');
+}
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

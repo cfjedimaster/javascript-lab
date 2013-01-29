@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<script src="../jquery.min.js"></script>
+<script language="javascript">
+
+$(document).ready(function() {
+
+	$("#genButton").on("click", function() {
+
+		//get the 3 vaues
+		var name = $("#nameField").val();
+		var beer = $("#beerField").val();
+		var music = $("#musicField").val();
+		
+		var result = name + " like to drink " + beer + " while listening to " + music;
+
+		$("#madlibDiv").text(result);
+
+	});
+
+});
+
+</script>
+</head>
+
+<body>
+
+<p>
+Enter your name: <input type="text" id="nameField"><br/>
+Enter a type of beer: <input type="text" id="beerField"><br/>
+Enter a type of music: <input type="text" id="musicField"><br/>
+</p>
+
+<button id="genButton">Generate Madlib</button>
+
+<div id="madlibDiv">
+
+</div>
+
+</body>
+</html>

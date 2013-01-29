@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<script src="../jquery.min.js"></script>
+<script src="../jquery-ui-1.9.2.custom/js/jquery-ui-1.9.2.custom.js"></script>
+<link rel="stylesheet" href="../jquery-ui-1.9.2.custom/css/ui-lightness/jquery-ui-1.9.2.custom.css" />  
+<script language="javascript">
+
+$(document).ready(function() {
+	var beerSourceList = ["Abita","Bud","Coolio","Denali","Erin","Freaze","Googo"];
+
+	$( "#beerList" ).autocomplete({source:beerSourceList});
+
+});
+
+</script>
+</head>
+
+<body>
+
+<h2>jQuery UI Autocomplete</h2>
+
+<input type="text" id="beerList">
+
+
+</body>
+</html>
